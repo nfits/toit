@@ -369,8 +369,8 @@ PRIMITIVE(init_spi) {
   // HACK: disable auto nego, force 10BASE-T
   eth_speed_t speed = ETH_SPEED_10M;
   ESP_ERROR_CHECK(esp_eth_ioctl(eth_handle, ETH_CMD_S_SPEED, &speed));
-  auto_nego_en = false;
-  ESP_ERROR_CHECK(esp_eth_ioctl(eth_handle, ETH_CMD_S_AUTONEGO, auto_nego_en));
+  bool auto_nego_en = false;
+  ESP_ERROR_CHECK(esp_eth_ioctl(eth_handle, ETH_CMD_S_AUTONEGO, &auto_nego_en));
 
   esp_eth_netif_glue_handle_t netif_glue = esp_eth_new_netif_glue(eth_handle);
   // Attach Ethernet driver to TCP/IP stack.
