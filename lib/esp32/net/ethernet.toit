@@ -29,6 +29,7 @@ PHY-CHIP-NONE     ::= 0
 PHY-CHIP-IP101    ::= 1
 PHY-CHIP-LAN8720  ::= 2
 PHY-CHIP-DP83848  ::= 3
+PHY-CHIP-RTL8201  ::= 4
 
 // The private base class is used only for sharing parts of the
 // construction code, so the constructors in the subclass are
@@ -112,7 +113,7 @@ class EthernetServiceProvider extends EthernetServiceProviderBase_:
 
   /**
   The $mac-chip must be one of $MAC-CHIP-ESP32 or $MAC-CHIP-OPENETH.
-  The $phy-chip must be one of $PHY-CHIP-IP101, $PHY-CHIP-LAN8720, or $PHY-CHIP-DP83848.
+  The $phy-chip must be one of $PHY-CHIP-IP101, $PHY-CHIP-LAN8720, $PHY-CHIP-DP83848 or $PHY-CHIP-RTL8201.
 
   Deprecated. Use $EthernetServiceProvider.mac-esp32,
     $EthernetServiceProvider.mac-openeth, or $EthernetServiceProvider.w5500 instead.
@@ -138,7 +139,7 @@ class EthernetServiceProvider extends EthernetServiceProviderBase_:
           mac-mdio ? mac-mdio.num : -1
 
   /**
-  The $phy-chip must be one of $PHY-CHIP-IP101, $PHY-CHIP-LAN8720, or $PHY-CHIP-DP83848.
+  The $phy-chip must be one of $PHY-CHIP-IP101, $PHY-CHIP-LAN8720, $PHY-CHIP-DP83848 or $PHY-CHIP-RTL8201.
   */
   constructor.mac-esp32
       --phy-chip/int
@@ -156,7 +157,7 @@ class EthernetServiceProvider extends EthernetServiceProviderBase_:
           mac-mdio ? mac-mdio.num : -1
 
   /**
-  The $phy-chip must be one of $PHY-CHIP-IP101, $PHY-CHIP-LAN8720, or $PHY-CHIP-DP83848.
+  The $phy-chip must be one of $PHY-CHIP-IP101, $PHY-CHIP-LAN8720, $PHY-CHIP-DP83848 or $PHY-CHIP-RTL8201.
   */
   constructor.mac-openeth
       --phy-chip/int

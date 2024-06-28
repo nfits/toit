@@ -51,6 +51,7 @@ enum {
   PHY_CHIP_IP101    = 1,
   PHY_CHIP_LAN8720  = 2,
   PHY_CHIP_DP83848  = 3,
+  PHY_CHIP_RTL8201  = 4,
 };
 
 const int kInvalidEthernet = -1;
@@ -231,6 +232,10 @@ PRIMITIVE(init) {
       break;
     case PHY_CHIP_DP83848: {
       phy = esp_eth_phy_new_dp83848(&phy_config);
+      break;
+    }
+    case PHY_CHIP_RTL8201: {
+      phy = esp_eth_phy_new_rtl8201(&phy_config);
     }
   }
   if (!phy) {
